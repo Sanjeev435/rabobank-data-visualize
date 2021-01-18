@@ -1,0 +1,44 @@
+<div class="card">
+  <div class="d-grid gap-2 upload-file">
+    <input type="file" #csvReader name="Upload CSV" id="txtFileUpload" class="btn btn-primary"
+      (change)="uploadListener($event)" accept=".csv" (click)="onFileUploadClick($event)"/>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table" *ngIf="tempRecords && tempRecords.length" >
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Sur Name </th>
+          <th>Issue Count
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel"
+              viewBox="0 0 16 16">
+              <image href="./assets/funnel.svg" class="filter-green" />
+              <rect (click)="filterForMinimalIssue()">
+                <title>Filter for minimal issue count</title>
+              </rect>
+            </svg>
+          </th>
+          <th>Date of Birth</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="4">
+            <div class="scrollit">
+              <table class="table-striped" style="width:100%;">
+
+                <tr *ngFor="let record of tempRecords">
+                  <td width="25%"> <span style="padding-right:5em;">{{record.firstName}}</span> </td>
+                  <td width="25%"> <span style="padding-right:30%;">{{record.surName}}</span> </td>
+                  <td width="25%"> <span style="padding-right:30%;">{{record.issueCount}}</span> </td>
+                  <td width="25%"> <span>{{record.dateOfBirth | convertToIsoDatePipe}}</span> </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
