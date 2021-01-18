@@ -1,6 +1,7 @@
 # RabobankDataVisualize
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.8.
+
 Main task of this project is to import csv-file and visualize it on the screen.
 Sub task includes :
 - select a csv file from computer and could see the results
